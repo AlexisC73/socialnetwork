@@ -1,6 +1,6 @@
 import { StyledContent, Title, Connect, Form } from './styled/Content.styled'
 import { app } from '../../../services/app/myApp'
-import React, { DOMElement } from 'react'
+import React from 'react'
 
 interface ContentProps {
   displayModal: React.Dispatch<React.SetStateAction<boolean>>

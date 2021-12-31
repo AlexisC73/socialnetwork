@@ -1,4 +1,4 @@
-import React, { MouseEvent } from 'react'
+import React from 'react'
 import { Signup, StyledBackground, Line, Form } from './styled/Modal.styled'
 
 interface ModalProps {
