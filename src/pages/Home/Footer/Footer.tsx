@@ -11,7 +11,7 @@ export default function Footer() {
     <StyledFooter>
       <Wrapper>
         <StyledLanguageList>
-          <li>Français (France)</li>
+          <li className='active'>Français (France)</li>
           <li>English (US)</li>
           <li>Español</li>
           <li>Türkçe</li>

@@ -25,6 +25,10 @@ export const StyledLanguageList = styled.ul`
     font-size: 12px;
     color: #8a8d91;
     cursor: pointer;
+    &.active {
+      color: #737373;
+      cursor: text;
+    }
   }
 
   .add {
