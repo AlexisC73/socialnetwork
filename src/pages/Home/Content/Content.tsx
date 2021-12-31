@@ -1,7 +1,16 @@
 import { StyledContent, Title, Connect, Form } from './styled/Content.styled'
 import { app } from '../../../services/app/myApp'
+import React, { DOMElement } from 'react'
 
-export default function Content() {
+interface ContentProps {
+  displayModal: React.Dispatch<React.SetStateAction<boolean>>
+}
+
+export default function Content({ displayModal }: ContentProps) {
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    e.preventDefault()
+    displayModal(true)
+  }
   return (
     <div>
       <StyledContent>
@@ -29,11 +38,7 @@ export default function Content() {
             <a href='#'>Mot de passe oublié ?</a>
             {/* TODO a changer */}
             <div className='separator'></div>
-            <button
-              onClick={(e) => {
-                console.log('clic')
-              }}
-            >
+            <button onClick={(e) => handleClick(e)}>
               Créer nouveau compte
             </button>
           </Form>
