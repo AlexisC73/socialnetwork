@@ -72,7 +72,7 @@ export default function Modal({ displayModal }: ModalProps) {
           </p>
 
           {/* TODO Finir le formulaire ! */}
-          <button role='submit'>S'inscrire</button>
+          <button type='submit'>S'inscrire</button>
         </Form>
       </Signup>
     </StyledBackground>

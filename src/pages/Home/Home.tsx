@@ -1,18 +1,18 @@
-import { useState } from 'react'
-import { Main } from '../../components/styled/Main.styled'
-import Content from './Content/Content'
-import Modal from './Content/Modal'
-import Footer from './Footer/Footer'
+import AuthContext from '../../services/auth/Auth'
+import { useContext } from 'react'
 
-export default function Home() {
-  const [viewModal, setViewModal] = useState(false)
+export default function Test() {
+  const auth = useContext(AuthContext)
   return (
-    <>
-      {viewModal && <Modal displayModal={setViewModal} />}
-      <Main bg={'#f0f2f5'}>
-        <Content displayModal={setViewModal} />
-      </Main>
-      <Footer />
-    </>
+    <div>
+      {auth.user?.uid}
+      <button
+        onClick={() => {
+          auth.disconnect()
+        }}
+      >
+        Disconnect
+      </button>
+    </div>
   )
 }
