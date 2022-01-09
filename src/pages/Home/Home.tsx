@@ -8,15 +8,8 @@ export default function Test() {
     <>
       <Header />
       <div>
-        {/* A supprimer */}
-        {auth.user?.uid}
-        <button
-          onClick={() => {
-            auth.disconnect()
-          }}
-        >
-          Disconnect
-        </button>
+        Welcome user:{' '}
+        <span style={{ color: 'darkorange' }}>{auth.user?.uid}</span>
       </div>
     </>
   )

@@ -1,6 +1,6 @@
 import { SVGProps } from 'react'
 
-export function UserIcon(props: SVGProps<SVGSVGElement>) {
+export default function UserIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox='0 0 24 24' {...props}>
       <path
@@ -10,4 +10,3 @@ export function UserIcon(props: SVGProps<SVGSVGElement>) {
     </svg>
   )
 }
-export default UserIcon
