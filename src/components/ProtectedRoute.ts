@@ -7,7 +7,7 @@ interface ProtectedRouteProps {
   children: JSX.Element
 }
 
-const Protected = ({ children }: ProtectedRouteProps) => {
+const ProtectedRoute = ({ children }: ProtectedRouteProps) => {
   const auth = useContext(AuthContext)
   const navigate = useNavigate()
   useEffect(() => {
@@ -18,4 +18,4 @@ const Protected = ({ children }: ProtectedRouteProps) => {
   return children
 }
 
-export default Protected
+export default ProtectedRoute
