@@ -7,7 +7,10 @@ import {
   InMemoryCache,
   ApolloProvider,
   gql,
+  ApolloLink,
 } from '@apollo/client'
+
+import { createUploadLink } from 'apollo-upload-client'
 
 const typeDefs = gql`
   extend type ConnectInput {
@@ -16,8 +19,13 @@ const typeDefs = gql`
   }
 `
 
+const link = createUploadLink({
+  uri: 'http://localhost:5500/graphql',
+})
+
 const client = new ApolloClient({
   uri: 'http://localhost:5500/graphql',
+  link: link as unknown as ApolloLink,
   cache: new InMemoryCache(),
   typeDefs,
 })
