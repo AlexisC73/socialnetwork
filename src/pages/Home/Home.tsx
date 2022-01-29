@@ -11,14 +11,15 @@ import Image from '../../components/icons/Image'
 import Tag from '../../components/icons/Tag'
 import Location from '../../components/icons/Location'
 import Emoticon from '../../components/icons/Emoticon'
-import React, { useState } from 'react'
+import React, { ErrorInfo, useRef, useState } from 'react'
 import { useMutation, gql } from '@apollo/client'
 
 export default function Home() {
   const [post, setPost] = useState('')
   const [file, setFile] = useState<File | null>(null)
+  const formRef = useRef()
   const ADD_POST = gql`
-    mutation ($post: String!, $file: Upload!) {
+    mutation ($post: String!, $file: Upload) {
       addPost(post: $post, file: $file)
     }
   `
@@ -36,11 +37,14 @@ export default function Home() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     try {
-      console.log(file)
-      const postAdded = await addPost({ variables: { post, file } })
-      console.log(postAdded)
+      await addPost({ variables: { post, file } })
+      if (e.target instanceof HTMLFormElement) {
+        setFile(null)
+        setPost('')
+        e.target.reset()
+      }
     } catch (e) {
-      console.log(e)
+      console.warn(e)
     }
   }
 
