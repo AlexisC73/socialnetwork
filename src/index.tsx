@@ -13,7 +13,6 @@ import {
 import { setContext } from 'apollo-link-context'
 
 import { createUploadLink } from 'apollo-upload-client'
-import { RequestHandler } from 'apollo-upload-client/node_modules/@apollo/client/core'
 
 const typeDefs = gql`
   extend type ConnectInput {
