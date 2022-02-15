@@ -1,13 +1,12 @@
 import styled from 'styled-components'
 
-interface ColumnProps {
-  width: string
-}
-
-export const ColumnStyled = styled.div<ColumnProps>`
-  width: ${(props) => props.width};
+export const ColumnStyled = styled.div`
   display: flex;
+  width: 20%;
   flex-direction: column;
+  :nth-of-type(2) {
+    flex: 1;
+  }
 `
 
 export const ContentStyled = styled.div`
@@ -51,14 +50,15 @@ export const InputWithImageContent = styled.div`
 
 export const NewPostFormStyled = styled.form`
   display: flex;
+  max-width: 700px;
   flex-direction: column;
   margin: 0 auto;
   background-color: white;
-  padding: 0 5%;
+  padding: 0 20px;
   border-radius: 10px;
   box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.1);
   margin-top: 10px;
-  width: 700px;
+  width: 100%;
 
   .separator {
     height: 2px;

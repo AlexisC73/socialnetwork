@@ -11,13 +11,12 @@ import Image from '../../components/icons/Image'
 import Tag from '../../components/icons/Tag'
 import Location from '../../components/icons/Location'
 import Emoticon from '../../components/icons/Emoticon'
-import React, { ErrorInfo, useRef, useState } from 'react'
+import React, { useState } from 'react'
 import { useMutation, gql } from '@apollo/client'
 
 export default function Home() {
   const [post, setPost] = useState('')
   const [file, setFile] = useState<File | null>(null)
-  const formRef = useRef()
   const ADD_POST = gql`
     mutation ($post: String!, $file: Upload) {
       addPost(post: $post, file: $file)
@@ -53,8 +52,8 @@ export default function Home() {
       <Header />
       <Main bg='e5e5e5'>
         <ContentStyled>
-          <ColumnStyled width='20%'></ColumnStyled>
-          <ColumnStyled width='60%'>
+          <ColumnStyled></ColumnStyled>
+          <ColumnStyled>
             <NewPostFormStyled onSubmit={(e) => handleSubmit(e)}>
               <div>
                 <img
@@ -112,7 +111,7 @@ export default function Home() {
               </InputWithImageContent>
             </NewPostFormStyled>
           </ColumnStyled>
-          <ColumnStyled width='20%'></ColumnStyled>
+          <ColumnStyled></ColumnStyled>
         </ContentStyled>
       </Main>
     </>
